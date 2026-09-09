@@ -12,6 +12,24 @@ export default defineConfig({
     ['meta', { name: 'author', content: '栈外笔记' }]
   ],
 
+  markdown: {
+    config(md) {
+      const defaultFence = md.renderer.rules.fence!
+
+      md.renderer.rules.fence = (tokens, index, options, env, self) => {
+        const token = tokens[index]
+        const language = token.info.trim().split(/\s+/)[0].toLowerCase()
+
+        if (language === 'mermaid' || language === 'mmd') {
+          const code = md.utils.escapeHtml(JSON.stringify(token.content))
+          return `<MermaidDiagram :code="${code}" />\n`
+        }
+
+        return defaultFence(tokens, index, options, env, self)
+      }
+    }
+  },
+
   themeConfig: {
     siteTitle: '栈外笔记',
 
