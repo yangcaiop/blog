@@ -36,6 +36,31 @@ body {
   letter-spacing: 0;
 }
 
+.VPNavBar .content-body {
+  position: static;
+}
+
+.VPNavBar .VPNavBarSearch {
+  position: absolute;
+  /* Keep the centered button above the menu's transparent flex area. */
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-right: 0;
+  padding-left: 0;
+  transform: translate(-50%, -50%);
+}
+
+@media (48rem <= width < 60rem) {
+  .VPNavBar .VPNavBarSearchButton {
+    min-height: 38px;
+  }
+
+  .VPNavBar .VPNavBarSearchButton .keys {
+    display: none;
+  }
+}
+
 .VPButton {
   border-radius: 6px !important;
   letter-spacing: 0 !important;
