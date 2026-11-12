@@ -35,7 +35,6 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '系统', link: '/system' },
       { text: '编程', link: '/code' },
       { text: '人工智能', link: '/ai' }
     ],
